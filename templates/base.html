@@ -17,6 +17,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -26,13 +27,22 @@
                 <a class="nav-link" href="{% url 'post_create' %}">+ New Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="">About Us</a>
               </li>
             </ul>
-            <!-- <span class="navbar-text">
-              Navbar text with an inline element
-            </span> -->
+            <span class="navbar-text">
+              <!-- {% block loginBlock %} {% endblock loginBlock %}   -->
+              {% if user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'logout' %}"><button class="btn btn-success">Log Out</button></a>
+              {% else %}
+                <a class="navbar-brand" href="{% url 'login' %}"><button class="btn btn-success">Log In</button></a>
+                <a class="navbar-brand" href="{% url 'signup' %}"><button class="btn btn-success">Sign Up</button></a>
+              {% endif %}
+              
+              
+            </span>
           </div>
+          
         </div>
     </nav>   
     

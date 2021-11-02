@@ -2,6 +2,15 @@
 
 {% block title %} My blog {% endblock title %}
 
+<!-- {% block loginBlock %} 
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <a class="navbar-brand" href="{% url 'login' %}"><button class="btn btn-success">Log In</button></a>
+    {% endif %}
+{% endblock loginBlock %} -->
+
+
 {% block content %}
     
     {% for item in object_list %}
