@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Blog {{ object.title }} {% endblock title %}
+
+{% block content %}
+        <div class="card" style="width: auto;">
+            <div class="card-body">
+            <h4 class="card-title"><a href="">{{ object.title }}</a></h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ object.author }}</h6>
+            <p class="card-text">{{ object.body }}</p>
+            <a href="{% url 'post_edit' object.pk %}" class="card-link">Edit post</a>
+            <a href="{% url 'post_delete' object.pk%}" class="card-link">Delete post</a>
+            </div>
+        </div>
+
+{% endblock content %}
